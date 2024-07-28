@@ -46,9 +46,7 @@ public class MainLayout extends AppLayout {
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        nav.addItem(new SideNavItem("Index", IndexView.class, LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
-        //nav.addItem(
-        //        new SideNavItem("Grid with Filters", GridwithFiltersView.class, LineAwesomeIcon.FILTER_SOLID.create()));
+        nav.addItem(new SideNavItem("Star Wars", StarwarsView.class, LineAwesomeIcon.HELICOPTER_SOLID.create()));
 
         return nav;
     }
