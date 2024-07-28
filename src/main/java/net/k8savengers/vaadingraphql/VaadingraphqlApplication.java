@@ -1,6 +1,7 @@
 package net.k8savengers.vaadingraphql;
 
 import com.vaadin.flow.component.page.AppShellConfigurator;
+import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 import io.netty.handler.logging.LogLevel;
@@ -15,6 +16,7 @@ import reactor.netty.transport.logging.AdvancedByteBufFormat;
 
 @SpringBootApplication
 @Theme(variant = Lumo.DARK)
+@Push
 public class VaadingraphqlApplication implements AppShellConfigurator {
 
 
