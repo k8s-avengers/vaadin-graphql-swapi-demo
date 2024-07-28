@@ -1,5 +1,5 @@
 schema {
-    query: Root
+    query: Query
 }
 
 """A single film."""
@@ -640,7 +640,7 @@ type PlanetsEdge {
     cursor: String!
 }
 
-type Root {
+type Query {
     allFilms(after: String, first: Int, before: String, last: Int): FilmsConnection
     film(id: ID, filmID: ID): Film
     allPeople(after: String, first: Int, before: String, last: Int): PeopleConnection
