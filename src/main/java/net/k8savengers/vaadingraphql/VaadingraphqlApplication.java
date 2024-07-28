@@ -7,6 +7,7 @@ import com.vaadin.flow.theme.lumo.Lumo;
 import io.netty.handler.logging.LogLevel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.graphql.client.DgsGraphQlClient;
 import org.springframework.graphql.client.HttpGraphQlClient;
@@ -17,6 +18,7 @@ import reactor.netty.transport.logging.AdvancedByteBufFormat;
 @SpringBootApplication
 @Theme(variant = Lumo.DARK)
 @Push
+@EnableConfigurationProperties({AppConfig.class})
 public class VaadingraphqlApplication implements AppShellConfigurator {
 
 
@@ -25,9 +27,9 @@ public class VaadingraphqlApplication implements AppShellConfigurator {
     }
 
     @Bean
-    public DgsGraphQlClient graphQlClient() {
+    public DgsGraphQlClient graphQlClient(AppConfig config) {
         HttpGraphQlClient client = HttpGraphQlClient.builder()
-                .url("https://swapi-graphql.netlify.app/.netlify/functions/index")
+                .url(config.getSwapi_graphql_endpoint())
                 .webClient(builder -> {
                     builder.clientConnector(new ReactorClientHttpConnector(
                             HttpClient.create().wiretap("webClientLogger", LogLevel.INFO, AdvancedByteBufFormat.TEXTUAL)
